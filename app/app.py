@@ -68,8 +68,9 @@ def hello(name=None):
 
 
 @app.route('/members')
-def members():
-    return render_template('members.html')
+@app.route('/members/<name>')
+def members(name=None):
+    return render_template('members.html', member=name)
 
 
 @app.route('/projects/')
